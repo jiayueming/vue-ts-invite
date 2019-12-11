@@ -1,0 +1,51 @@
+
+ body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+      "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: #f7f7ff;
+    user-select: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  html{
+    -ms-overflow-style:none;
+    overflow:-moz-scrollbars-none;
+  }
+  //谷歌适用
+  ::-webkit-scrollbar{
+    display:none;
+  }
+  code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+      monospace;
+  }
+  p{
+    margin: 0;
+    padding: 0;
+  }
+  span{
+    display: inline-block;
+    vertical-align: middle;
+  }
+  // 禁止图片点击放大
+  img{ pointer-events: none;vertical-align: middle;}
+  
+  button{
+    border:0;
+    outline: none;
+  }
+  
+  // * { touch-action: pan-y; } 
+  .ml30{
+    margin-left: .3rem;
+  }
+  .ml3{
+    margin-left: 3px;
+  }
+  .mb50{
+    margin-bottom: .5rem
+  }
+ 
