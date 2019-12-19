@@ -99,26 +99,28 @@
                 </div>
             </div>
         </div>
-        <!--<div class="popup-rule-box" onTouchMove={this.touchmove.bind(this)}
-        style={{display : this.props.state.isShare ? 'block': 'none'}}>
+        <div class="popup-rule-box" v-show="isShare">
             <div class="imgbox">
-                <img src={this.props.state.shareImg} alt="" />
+                <img :src="shareImg" alt="" />
             </div>
         </div>
         <canvas id="canvas" class="canvas" width="400" height="700">
             Your browser does not support the HTML5 canvas tag.
-        </canvas>-->
+        </canvas>
     </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 import { namespace } from 'vuex-class'
+import { MyMixin } from '../../assets/js/mixins'
 import util from '../../assets/js/util'
 import http from '../../assets/js/http'
 const userModule = namespace('user')
 
-@Component
+@Component({
+    mixins: [MyMixin]
+})
 export default class inviteData extends Vue {
     currentIndex: number = 0
     navList: object[] = [{name: '我的邀请'}, {name: '昨日排名'}, {name: '每日收益'}]
@@ -137,8 +139,9 @@ export default class inviteData extends Vue {
     userInfo: object = {}
     pageTotal: number = 0
     personInfo: object = {}
+    isShare:boolean = false
     @userModule.Getter('userData') public userData!: any;
-    public created() {
+    created() {
         this.getPersonInvite()
         this.getInviteList()
         this.getCode()
@@ -241,8 +244,8 @@ export default class inviteData extends Vue {
     async processAsync() {
         let url = this.codeDetail.inviteUrl + '?inviteCode='+this.codeDetail.invoiceCode
         let bgUrl = require('../../common/image/haibao.png')
-        // await this.props.share(url)
-        // await this.props.draw(bgUrl, 'shareImg', '140', '435')
+        await this.share(url)
+        await this.draw(bgUrl, 'shareImg', 140, 435)
     }
 }
 </script>

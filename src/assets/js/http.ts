@@ -1,7 +1,7 @@
 /* tslint:disable */
 import axios from 'axios'
 import store from '../../store/index'
-axios.defaults.baseURL = 'http://10.71.0.158:8080/' // http://10.71.1.145:8088//测试域名
+axios.defaults.baseURL = 'http://10.71.1.145:8088/' // http://10.71.1.145:8088//测试域名
 axios.interceptors.request.use(config => {
   return config
 }, error => {
