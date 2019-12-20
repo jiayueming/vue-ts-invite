@@ -233,7 +233,7 @@ export default class inviteData extends Vue {
         })
     }
     goInvite() {
-        console.log('4456')
+        this.$router.push('/')
     }
     show() {
         this.showRule = true

@@ -5,6 +5,7 @@
  * @param method {string} 方法名
  * @return {Object} 回调
  */
+/* eslint-disable */
 let uniqueId = 0
 const JsBridge = {
   connectWebViewJavascriptBridge: function (callback) {

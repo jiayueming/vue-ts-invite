@@ -21,6 +21,15 @@ export default new Router({
         keepAlive: true,
         title: '邀请好友'
       }
+    },
+    {
+      path: '/index',
+      name: 'Index',
+      component: resolve => require(['@/pages/index/index.vue'], resolve),
+      meta: {
+        keepAlive: true,
+        title: '邀请列表'
+      }
     }
   ]
 })

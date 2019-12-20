@@ -7,7 +7,7 @@ axios.interceptors.request.use(config => {
 }, error => {
   return Promise.reject(error)
 })
-// console.log(store.state.user.deviceId)
+console.log(store.state.user)
 axios.interceptors.response.use(response => response, error => Promise.resolve(error.response))
 axios.defaults.withCredentials = false
 function checkStatus (response:any) {
@@ -43,8 +43,8 @@ export default {
     } else {
       _header = {
         'Content-Type': contentType,
-        'Authorization': 'Bearer ' + sessionStorage.getItem('token'),
-        'deviceId': sessionStorage.getItem('deviceId')
+        'Authorization': 'Bearer ' + store.state.user.token,
+        'deviceId': store.state.user.deviceId
       }
     }
     return axios({
@@ -64,8 +64,8 @@ export default {
     } else {
       _header = {
         'X-Requested-With': 'XMLHttpRequest',
-        'Authorization': 'Bearer ' + sessionStorage.getItem('token'),
-        'deviceId': sessionStorage.getItem('deviceId')
+        'Authorization': 'Bearer ' + store.state.user.token,
+        'deviceId': store.state.user.deviceId
       }
     }
     return axios({
